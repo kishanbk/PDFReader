@@ -1,0 +1,33 @@
+# The Basic PDFReader To Speak
+# the basic purpose of this app code is to reader the PDF and speak out
+# Two modules are used to achieve this functionality
+
+import pyttsx3
+# The pyttsx3 or the Python Text to Speech modules helps with conversion of text to speech
+
+import PyPDF2
+# This module helps on reading the PDF files
+
+book = open('c.pdf', 'rb')
+# Here this line of code clearly mentions that a variable book is taken to read book(rb) with the mention of the file name
+
+pdfReader = PyPDF2.PdfFileReader(book)
+# As the book is open here variable pdfReader is used to store the book
+pages = pdfReader.numPages
+# This line gets the number of pages in the PDF
+print(pages)
+# Printing of total number of pages
+pageNo = int(input('Enter the page no to start from: '))
+# Here is the mention from which page number to start
+print(pageNo)
+# Print the asked number of page by users
+speaker = pyttsx3.init()
+# Here starts the speaker
+for num in range(pageNo, pages):
+    page = pdfReader.getPage(pageNo)
+    text = page.extractText()
+    print('Speaking......')
+    speaker.say(text)
+    speaker.runAndWait()
+# The above module counts and keep reading the PDF till the end of the PDF pages.
+# However this could easily be changed to.
