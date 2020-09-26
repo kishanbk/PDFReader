@@ -8,7 +8,7 @@ import pyttsx3
 import PyPDF2
 # This module helps on reading the PDF files
 
-book = open('c.pdf', 'rb')
+book = open('enter_file_name.pdf', 'rb')
 # Here this line of code clearly mentions that a variable book is taken to read book(rb) with the mention of the file name
 
 pdfReader = PyPDF2.PdfFileReader(book)
